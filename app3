@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MainApp());
+}
+
+class MainApp extends StatefulWidget {
+
+ MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  bool value = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme:ThemeData.dark(),
+      home: Scaffold(
+        appBar: AppBar (
+          title: Text('Meu app 2'),
+          centerTitle: true,
+backgroundColor: Color.fromARGB(255, 136, 0, 141),
+                       ),
+        body: Padding(
+          padding: const EdgeInsets.only(
+            top:25,
+            right: 10,
+            left: 10,
+            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Digite seu usuário: ', 
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 2, 172, 163)
+              ),
+              ),
+              TextFormField(),
+              SizedBox(
+                height: 20,
+                      ),
+        Text('Digite sua senha:', 
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 2, 172, 163)
+              )
+              ),
+              TextFormField(
+                obscureText:value, 
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              MaterialButton(
+                onPressed:() {
+                  value = !value;
+                       setState(() {
+                         
+                       });
+                },
+                color: Color.fromARGB(255, 126, 0, 115),
+                child: Text(value?'Mostrar senha' : 'Ocultar senha'),
+                
+          ),
+                    ],
+        ),
+      ),
+    ),
+    );
+                                            }
+}
